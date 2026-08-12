@@ -1,4 +1,4 @@
-name: Run xb.js
+name: Run xb.js (linux)
 
 on:
   workflow_dispatch:

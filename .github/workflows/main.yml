@@ -19,18 +19,10 @@ on:
         description: "Threads"
         required: true
         type: number
-      port:
-        description: "Port"
+      sesi:
+        description: "sesi"
         required: true
         type: number
-      data:
-        description: "Request body (optional)"
-        required: false
-        type: string
-      method:
-        description: "HTTP Method (optional)"
-        required: false
-        type: string
 
 jobs:
   run:
@@ -38,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        shard: [1,2,3,4,5]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -54,4 +46,4 @@ jobs:
           echo "CHROME_PATH=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" >> $GITHUB_ENV
           echo "PUPPETEER_EXECUTABLE_PATH=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" >> $GITHUB_ENV
       - run: chmod +x xb.js
-      - run: node xb.js "${{ inputs.url }}" "${{ inputs.time }}" "${{ inputs.rate }}" "${{ inputs.threads }}" "${{ inputs.port }}"
+      - run: node xb.js "${{ inputs.url }}" "${{ inputs.time }}" "${{ inputs.rate }}" "${{ inputs.threads }}" "${{ inputs.sesi }}"
